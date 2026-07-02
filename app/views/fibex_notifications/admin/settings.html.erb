@@ -1,0 +1,88 @@
+<% html_title t("fibex_notifications.admin.settings.title") %>
+
+<%= toolbar title: t("fibex_notifications.admin.settings.title") %>
+
+<%= styled_form_for @setting, url: admin_fibex_settings_path, method: :patch, html: { class: "form" } do |f| %>
+  <section class="form--section">
+    <h3 class="form--section-title"><%= t("fibex_notifications.admin.settings.api.title") %></h3>
+
+    <div class="form--field">
+      <%= f.text_field :api_endpoint,
+            required: true,
+            placeholder: "https://api.fibex.ai",
+            container_class: "middle" %>
+      <span class="form--field-instructions">
+        <%= t("fibex_notifications.admin.settings.api.endpoint_hint") %>
+      </span>
+    </div>
+  </section>
+
+  <section class="form--section">
+    <h3 class="form--section-title"><%= t("fibex_notifications.admin.settings.keycloak.title") %></h3>
+
+    <div class="form--field">
+      <%= f.text_field :keycloak_token_endpoint,
+            required: true,
+            placeholder: "https://auth.fibex.ai/realms/fibex/protocol/openid-connect/token",
+            container_class: "middle" %>
+      <span class="form--field-instructions">
+        <%= t("fibex_notifications.admin.settings.keycloak.token_endpoint_hint") %>
+      </span>
+    </div>
+
+    <div class="form--field">
+      <%= f.text_field :keycloak_client_id,
+            required: true,
+            placeholder: "openproject-client",
+            container_class: "middle" %>
+    </div>
+
+    <div class="form--field">
+      <%= f.password_field :keycloak_client_secret,
+            required: true,
+            placeholder: t("fibex_notifications.admin.settings.keycloak.client_secret_placeholder"),
+            container_class: "middle" %>
+    </div>
+  </section>
+
+  <section class="form--section">
+    <h3 class="form--section-title"><%= t("fibex_notifications.admin.settings.channels.title") %></h3>
+
+    <div class="form--field">
+      <%= f.check_box :enabled, container_class: "middle" %>
+    </div>
+
+    <div class="form--field">
+      <%= f.check_box :email_enabled, container_class: "middle" %>
+      <span class="form--field-instructions">
+        <%= t("fibex_notifications.admin.settings.channels.email_hint") %>
+      </span>
+    </div>
+
+    <div class="form--field">
+      <%= f.check_box :whatsapp_enabled, container_class: "middle" %>
+      <span class="form--field-instructions">
+        <%= t("fibex_notifications.admin.settings.channels.whatsapp_hint") %>
+      </span>
+    </div>
+
+    <div class="form--field">
+      <%= f.check_box :sms_enabled, container_class: "middle" %>
+      <span class="form--field-instructions">
+        <%= t("fibex_notifications.admin.settings.channels.sms_hint") %>
+      </span>
+    </div>
+  </section>
+
+  <section class="form--section">
+    <h3 class="form--section-title"><%= t("fibex_notifications.admin.settings.troubleshooting.title") %></h3>
+
+    <div class="form--field">
+      <%= f.text_field :default_from_name,
+            placeholder: "Fibex Notifications",
+            container_class: "middle" %>
+    </div>
+  </section>
+
+  <%= submit_tag t(:button_save), class: "button -primary -with-icon icon-checkmark" %>
+<% end %>

@@ -1,0 +1,33 @@
+es:
+  fibex_notifications:
+    admin:
+      settings:
+        title: "Notificaciones Fibex"
+        api:
+          title: "API fibex-communications"
+          endpoint_hint: "URL base del microservicio de comunicaciones"
+        keycloak:
+          title: "Autenticación Keycloak M2M"
+          token_endpoint_hint: "URL del token endpoint de Keycloak (client_credentials)"
+          client_secret_placeholder: "Ingrese el Client Secret de Keycloak"
+        channels:
+          title: "Canales de Notificación"
+          email_hint: "Envía al correo electrónico del usuario (user.mail)"
+          whatsapp_hint: "Envía al WhatsApp del usuario (requiere campo personalizado user.whatsapp_phone)"
+          sms_hint: "Envía al SMS del usuario (requiere campo personalizado user.sms_phone)"
+        troubleshooting:
+          title: "Solución de problemas"
+    reasons:
+      mentioned: "te mencionó"
+      assigned: "te asignó"
+      responsible: "te hizo responsable"
+      watched: "actualizó algo que observas"
+      commented: "comentó"
+      created: "creó"
+      updated: "actualizó"
+      default: "te notificó"
+    notification:
+      default_subject: "Notificación de OpenProject"
+      work_package_body: "%{actor} %{reason} en %{project}: \"%{subject}\"\n%{url}"
+      generic_body: "%{actor} %{reason}"
+      someone: "Alguien"
