@@ -1,1 +1,1 @@
-require_relative 'openproject/fibex_notifications/engine'
+require_relative 'open_project/fibex_notifications/engine'

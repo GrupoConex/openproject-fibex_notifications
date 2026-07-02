@@ -1,1 +1,1 @@
-require 'openproject/fibex_notifications'
+require 'open_project/fibex_notifications'
