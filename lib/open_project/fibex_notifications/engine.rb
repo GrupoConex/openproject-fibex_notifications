@@ -13,7 +13,7 @@ module OpenProject::FibexNotifications
            :fibex_notifications,
            { controller: "/fibex_notifications/admin/settings", action: :show },
            caption: "Fibex Notifications",
-           icon: "icon-bell"
+           icon: "bell"
     end
 
     config.autoload_paths += %w[
