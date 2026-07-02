@@ -4,4 +4,5 @@ COPY . /app/plugins/fibex_notifications/
 
 RUN echo 'gem "openproject-fibex_notifications", path: "plugins/fibex_notifications"' >> /app/Gemfile.plugins && \
     cd /app && \
+    bundle config set frozen false && \
     bundle install --quiet
