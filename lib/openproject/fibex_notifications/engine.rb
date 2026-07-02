@@ -19,15 +19,17 @@ module FibexNotifications
       end
     end
 
-    initializer 'fibex_notifications.admin_menu' do
-      ::Admin::Menu.items.push(
-        ::Admin::MenuItem.new(
-          id: 'fibex_notifications',
-          label: 'fibex_notifications.admin.settings.title',
-          path: -> { admin_fibex_settings_path },
-          icon: 'icon-broadcast'
+    initializer 'fibex_notifications.admin_menu', after: :load_config_initializers do
+      if defined?(::Admin::Menu)
+        ::Admin::Menu.items.push(
+          ::Admin::MenuItem.new(
+            id: 'fibex_notifications',
+            label: 'fibex_notifications.admin.settings.title',
+            path: -> { admin_fibex_settings_path },
+            icon: 'icon-broadcast'
+          )
         )
-      )
+      end
     end
   end
 end
