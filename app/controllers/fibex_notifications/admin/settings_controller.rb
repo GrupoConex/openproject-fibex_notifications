@@ -8,7 +8,7 @@ module FibexNotifications
       end
 
       def update
-        if @setting.update(permitted_params)
+        if @setting.update(sanitized_params)
           flash[:notice] = I18n.t(:notice_successful_update)
           redirect_to action: :show
         else
@@ -20,6 +20,12 @@ module FibexNotifications
 
       def find_setting
         @setting = ::FibexNotificationSetting.first_or_initialize
+      end
+
+      def sanitized_params
+        permitted_params.tap do |p|
+          p.delete(:keycloak_client_secret) if p[:keycloak_client_secret].blank?
+        end
       end
 
       def permitted_params
