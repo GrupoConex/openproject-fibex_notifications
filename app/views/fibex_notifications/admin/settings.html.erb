@@ -2,7 +2,7 @@
 
 <%= toolbar title: t("fibex_notifications.admin.settings.title") %>
 
-<%= styled_form_for @setting, url: fibex_settings_path, method: :patch, html: { class: "form" } do |f| %>
+<%= form_with model: @setting, url: fibex_settings_path, method: :patch, local: true, class: "form" do |f| %>
   <section class="form--section">
     <h3 class="form--section-title"><%= t("fibex_notifications.admin.settings.api.title") %></h3>
 
